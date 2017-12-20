@@ -1,0 +1,27 @@
+/* Archivo de estilos */
+#cuadro-1 {
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  margin: 10px;
+  color: black;
+  font-size: 24px;
+}
+
+#cuadro-2 {
+  width: 90px;
+  height: 90px;
+  border: 2px solid red;
+  margin: 10px;
+  color: white;
+  font-size: 24px;
+}
+
+#cuadro-3 {
+  width: 80px;
+  height: 80px;
+  border: 3px solid blue;
+  margin: 10px;
+  color: blue;
+  font-size: 24px;
+}
