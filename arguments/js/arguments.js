@@ -1,25 +1,10 @@
 /* Valores por defecto en argumentos en ES6 */
-
-/* Función como parámetro de otra */
-function saludos( cosa = predeterminada() ) {
-  return cosa;
+function pareja( ella = 'María', el ) {
+  return [ ella, el ];
 }
 
-/* Funciones corrientes */
-function predeterminada() {
-  return 'Hola!';
-}
-function ingles() {
-  return 'Hello!';
-}
-function personalizado( nombre ) {
-  return 'Hola ' + nombre + ' saludos desde ES6';
-}
-
-/* Resultados */
-console .group( 'Saludos ' );
-  console .log( 'Corriente ', saludos() );                                // Hola
-  console .log( 'En inglés ', saludos( ingles() ) );                      // Hello
-  console .log( 'Personalizado ', saludos( personalizado( 'Juan' ) ) );   // Hola Juan saludos desde ES6
-  console .log( 'Repite ', saludos( 'Juanito' ) );                        // Juanito
+console .group( 'Parejas' );
+  console .log( pareja() );                         // [ "María", undefined ]
+  console .log( pareja( 'Luisa' ) );                // [ "Luisa", undefined ]
+  console .log( pareja( 'Ana Maria', 'Pedro' ) );   // [ "Ana María", "Pedro" ]
 console .groupEnd();
