@@ -1,12 +1,21 @@
 /* Generadores en ES6 */
-function* rango( inicio, final, incremento ) {
-  while( inicio < final ) {
-    yield inicio;           /* Retornamos el valor y mantenemos el estado del mismo */
-    inicio += incremento;
+function* cuadrados() {
+  var numero = 1,
+      cuadrado = 0;
+  while( true ) {
+    cuadrado = numero * numero;   // Obtiene el cuadrado
+    yield cuadrado;               // Retorna el valor y mantiene el mismo
+    numero++;                     // Aumenta para la próxima iteracción
   }
 }
 
-/* Recorremos los valores generados */
-for( let valor of rango( 0, 10, 2 ) ) {
-  console .log( valor );      // 0, 2 ,4, 6, 8
-}
+/* Generamos los cuadrados */
+var numero_generado = cuadrados();
+
+console .log( numero_generado );  // Estado de suspención
+
+/* Obtengo los cuadrados usando next() */
+console .log( numero_generado .next() .value );   //  1
+console .log( numero_generado .next() .value );   //  4
+console .log( numero_generado .next() .value );   //  9
+console .log( numero_generado .next() .value );   //  16
