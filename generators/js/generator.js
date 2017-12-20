@@ -1,21 +1,19 @@
 /* Generadores en ES6 */
-function* cuadrados() {
-  var numero = 1,
-      cuadrado = 0;
-  while( true ) {
-    cuadrado = numero * numero;   // Obtiene el cuadrado
-    yield cuadrado;               // Retorna el valor y mantiene el mismo
-    numero++;                     // Aumenta para la próxima iteracción
+let fibonacci = {
+  *[ Symbol.iterator ] () {                 // Generador (inicia la iteración)
+    let pre = 0,
+        cur = 1;
+
+    for( ;; ) {
+      [ pre, cur ] = [ cur, pre + cur ];    // Destructuring
+      yield cur;
+    }
   }
 }
 
-/* Generamos los cuadrados */
-var numero_generado = cuadrados();
+/* Obtenemos los números la serie Fibonacci menores a 1000 */
+for( let numero of fibonacci ) {
+  if( numero > 1000 ) break;
 
-console .log( numero_generado );  // Estado de suspención
-
-/* Obtengo los cuadrados usando next() */
-console .log( numero_generado .next() .value );   //  1
-console .log( numero_generado .next() .value );   //  4
-console .log( numero_generado .next() .value );   //  9
-console .log( numero_generado .next() .value );   //  16
+  console .log ( numero );    // 1, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987
+}
