@@ -1,4 +1,4 @@
 /* Función Flecha en ES6 */
-var saludar = ( saludo, nombre ) => saludo + ' ' + nombre;  /* 'saludo' y 'nombre' son parámetros y valor de retorno */
+var saludar = _ => 'Hola esto es ES6!';       /* Usando el guión bajo */
 
-console .log( saludar( 'Hola!', 'Juan' ) );
+console .log( saludar() );
