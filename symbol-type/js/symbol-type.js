@@ -1,59 +1,29 @@
 /* Valores por defecto en argumentos en ES6 */
-function symbolType() {
 
-  /* Declara constantes de tipo "Symbol" */
-  const primera = Symbol( 'Yo soy el primero' );
-  const segunda = Symbol( 'Yo soy el segundo' );
-  /* Declara variable de tipo Objeto Vacio */
-  let variableObjeto = {};      // Equivale a:   variableObjeto = new Object();
+/* Declara constantes de tipo "Symbol" */
+const COLOR_RED    = Symbol( 'Rojo' ),
+    COLOR_ORANGE = Symbol( 'Naranja' ),
+    COLOR_YELLOW = Symbol( 'Amarillo' ),
+    COLOR_GREEN  = Symbol( 'Verde' ),
+    COLOR_BLUE   = Symbol( 'Azul' ),
+    COLOR_VIOLET = Symbol( 'Violeta' );
 
-  /* Asigna las constantes "Symbol" al Objeto usando la notación de [] no la de  . */
-  variableObjeto[ primera ] = 'PRIMERA';
-  variableObjeto[ segunda ] = 'SEGUNDA';
-
-  /* Valores contenidos en los objetos */
-  console .group( 'Valores contenidos en los objetos (primera, segunda)' );
-    console .log(
-      ' >>> variableObjeto[ primera ] ... ',
-      variableObjeto[ primera ]
-    );
-    console .log(
-      ' >>> variableObjeto[ segunda ] ... ',
-      variableObjeto[ segunda ]
-    );
-  console .groupEnd();
-
-  /* Validaciones */
-  console .group( 'JSON .stringify' );
-    console .log(
-      ' >>> JSON .stringify( variableObjeto ) ... ',
-      JSON .stringify( variableObjeto )
-    );
-  console .groupEnd();
-
-  console .group( 'Object .keys' );
-    console .log(
-      ' >>> Object .keys( variableObjeto ) ... ',
-      Object .keys( variableObjeto )
-    );
-  console .groupEnd();
-
-  console .group( 'Object .getOwnPropertyNames' );
-    console .log(
-      '  >>> Object .getOwnPropertyNames( variableObjeto ) ... ',
-      Object .getOwnPropertyNames( variableObjeto )
-    );
-  console .groupEnd();
-
-  /* OBTENER las VARIABLES o CONSTANTES de tipo SYMBOL contenidos en un OBJETO*/
-  console .group( 'Object .getOwnPropertySymbols' );
-    console .log(
-      ' >>> Object .getOwnPropertySymbols( variableObjeto ) ... ',
-      Object .getOwnPropertySymbols( variableObjeto )
-    );
-  console .groupEnd();
+/* Obtiene los colores complementarios */
+function complemento( color ) {
+  switch( color ) {
+    case COLOR_RED    : return COLOR_GREEN;
+    case COLOR_ORANGE : return COLOR_BLUE;
+    case COLOR_YELLOW : return COLOR_VIOLET;
+    case COLOR_BLUE   : return COLOR_ORANGE;
+    case COLOR_VIOLET : return COLOR_YELLOW;
+    default:
+      throw new Exception( 'Color desconocido ' + color );
+  }
 }
 
-
-
-symbolType();
+/* Resultados */
+console .group( 'Colores complementarios' );
+  console .log( 'Rojo: ', complemento( COLOR_RED ) );
+  console .log( 'Azul: ', complemento( COLOR_BLUE ) );
+  console .log( 'Violeta: ', complemento( COLOR_VIOLET ) );
+console .groupEnd();
