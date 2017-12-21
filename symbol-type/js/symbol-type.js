@@ -1,12 +1,31 @@
 /* Valores por defecto en argumentos en ES6 */
 function symbolType() {
-  var variableSimbolo = Symbol( 'foo' );              // Declara una variable de tipo Symbol
-  var variableObjeto  = Object( variableSimbolo );    // Metenmos la variable de tipo "Symbol" a un Objeto
 
-  /* Verificamos el tipo de variable de cada variable */
-  console .group( 'typeof' );
-    console .log( 'variableSimbolo: ', typeof variableSimbolo );   // "Symbol"
-    console .log( 'variableObjeto: ', typeof variableObjeto );     // "Object"
+  // Declara constantes de tipo "Symbol"
+  const primera = Symbol();
+  const segunda = Symbol();
+
+  console .group( 'Validaciones de variables tipo "Symbol"' );
+    console .log(
+      'Symbol( "foo" ) !== Symbol( "foo" ) ... ',
+      Symbol( "foo" ) !== Symbol( "foo" )
+    );
+    console .log(
+      'primera !== segunda ... ',
+      primera !== segunda
+    );       // Equivalente a la validación anterior
+
+    /* Valida los tipos */
+    console .group( 'Constantes de tipo "Symbol"' );
+      console .log(
+        'typeof primera !== "symbol" ... ',
+        typeof primera !== "symbol"
+      );
+      console .log(
+        'typeof segunda !== "symbol" ... ',
+        typeof segunda !== 'symbol'
+      );
+    console .groupEnd();
   console .groupEnd();
 }
 
