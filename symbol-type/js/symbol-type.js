@@ -2,8 +2,8 @@
 function symbolType() {
 
   /* Declara constantes de tipo "Symbol" */
-  const primera = Symbol();
-  const segunda = Symbol();
+  const primera = Symbol( 'Yo soy el primero' );
+  const segunda = Symbol( 'Yo soy el segundo' );
   /* Declara variable de tipo Objeto Vacio */
   let variableObjeto = {};      // Equivale a:   variableObjeto = new Object();
 
@@ -29,14 +29,6 @@ function symbolType() {
       ' >>> JSON .stringify( variableObjeto ) ... ',
       JSON .stringify( variableObjeto )
     );
-    console .log(
-      'JSON .stringify( variableObjeto[ primera ] ) ... ',
-      JSON .stringify( variableObjeto[ primera ] )
-    );
-    console .log(
-      'JSON .stringify( variableObjeto[ segunda ] ) ... ',
-      JSON .stringify( variableObjeto[ segunda ] )
-    );
   console .groupEnd();
 
   console .group( 'Object .keys' );
@@ -51,14 +43,6 @@ function symbolType() {
       '  >>> Object .getOwnPropertyNames( variableObjeto ) ... ',
       Object .getOwnPropertyNames( variableObjeto )
     );
-    console .log(
-      'Object .getOwnPropertyNames( variableObjeto[ primera ] ) ... ',
-      Object .getOwnPropertyNames( variableObjeto[ primera ] )
-    );
-    console .log(
-      'Object .getOwnPropertyNames( variableObjeto[ segunda ] ) ... ',
-      Object .getOwnPropertyNames( variableObjeto[ segunda ] )
-    );
   console .groupEnd();
 
   /* OBTENER las VARIABLES o CONSTANTES de tipo SYMBOL contenidos en un OBJETO*/
@@ -66,14 +50,6 @@ function symbolType() {
     console .log(
       ' >>> Object .getOwnPropertySymbols( variableObjeto ) ... ',
       Object .getOwnPropertySymbols( variableObjeto )
-    );
-    console .log(
-      'Object .getOwnPropertySymbols( variableObjeto[ primera ] ) ... ',
-      Object .getOwnPropertySymbols( variableObjeto[ primera ] )
-    );
-    console .log(
-      'Object .getOwnPropertySymbols( variableObjeto[ segunda ] ) ... ',
-      Object .getOwnPropertySymbols( variableObjeto[ segunda ] )
     );
   console .groupEnd();
 }
