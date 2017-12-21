@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Symbol Type</title>
+    <script src="js/symbol-type.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <h1>Symbol Type</h1>
+    <ul>
+      <li>Son un nuevo tipo de dato primitivo</li>
+      <li>Son únicos e inmutables y son utilizados como identificadores para propiedades de objetos</li>
+      <li>Pueden tener una descripción opcional, pero sólo es utilizada para fines de depurador</li>
+      <li>Cada valor del tipo "Symbol" tiene asociado un valor de tipo "String" o "Undefined" que sirve únicamente como descripción del símbolo</li>
+      <li>El constructor de "Symbol" no debe ser usado con el operador 'new'</li>
+      <li>Tampoco debe ser extendido mediante clases</li>
+    </ul>
+    <p>El siguiente código crea tres símbolos nuevos. Hay que destacar que <b>Symbol( "foo" )</b> no convierte la cadena <b>"foo"</b> en un símbolo, si no que crea un símbolo nuevo que tiene la misma descripción.</p>
+    <ul>
+      <li>var <b>sim1</b> = Symbol();</li>
+      <li>var <b>sim2</b> = Symbol( "foo" );</li>
+      <li>var <b>sim3</b> = Symbol( "foo" );</li>
+    </ul>
+    <p><b>"foo"</b> es simplemente una descripción para la variable <b>sim2, sim3</b> de tipo <b>Symbol</b> y funcionan como etiquetas de documentación</p>
+    <h2>Errores comunes</h2>
+    <p>Symbol( "foo" ) === Symbol( "foo" );   // false</p>
+    <p>var sym = new Symbol();                // TypeError</p>
+  </body>
+</html>
