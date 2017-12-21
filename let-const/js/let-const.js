@@ -1,10 +1,10 @@
 /* Valores por defecto en argumentos en ES6 */
-function letTest() {
+function varTest() {
   if( true ) {
-    let numero = 23;
+    var numero = 23;
     console .log( 'Dentro del Bloque IF ', numero ); // 23
   }
-  console .log( 'Fuera del Bloque IF ', numero ); // ReferenceError: x is not defined
+  console .log( 'Fuera del Bloque IF ', numero ); // 23
 }
 
-letTest();
+varTest();
