@@ -1,10 +1,8 @@
 /* Valores por defecto en argumentos en ES6 */
-function varTest() {
-  if( true ) {
-    var numero = 23;
-    console .log( 'Dentro del Bloque IF ', numero ); // 23
-  }
-  console .log( 'Fuera del Bloque IF ', numero ); // 23
+function constTest() {
+  const PI = 3.1415;
+  PI = 1.1728;          // TypeError: invalid assignment to const `PI'
+  console .log( PI );
 }
 
-varTest();
+constTest();
