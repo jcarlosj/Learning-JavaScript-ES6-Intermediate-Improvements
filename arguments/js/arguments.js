@@ -1,11 +1,7 @@
 /* Valores por defecto en argumentos en ES6 */
-function cambiarColorFondo( elemento, color = 'yellow' ) {
-  var cuadro = document .getElementById( elemento );
-  cuadro .style .backgroundColor = color;
+function contar( numero1, numero2, ...arreglo ) {   /* ...arreglo -> Argumento Extendido */
+  return ( numero1 + numero2 ) * arreglo .length;
 }
 
-window .onload = function() {
-  cambiarColorFondo( 'cuadro-1' );              // Color de fondo amarillo
-  cambiarColorFondo( 'cuadro-2', 'blue' );      // Color de fondo azul
-  cambiarColorFondo( 'cuadro-3', undefined );   // Color de fondo amarillo
-}
+/* Resultado */
+console .log( contar( 3, 2, 'Azul', true, 7 ) );  // 15
