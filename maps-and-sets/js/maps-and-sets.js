@@ -1,17 +1,18 @@
 /* Valores por defecto en argumentos en ES6 */
 
-// Declara un Set (Conjunto)
-var frutas = new Set();
-// Agrega 3 elementos al conjunto
-frutas .add( 'Manzana' )
-       .add( 'Mango' )
-       .add( 'Manzana' );     // Elemento repetido, si está en minúsculas no estaría repetido
+// Declara un Map (Mapas)
+var trabajador = new Map();
 
-console .group( 'Conjuntos (Sets)' );
+// Agrega 2 pares, clave: valor
+trabajador .set( 'nombre', 'Ana María' )
+           .set( 'cargo', 'Gerente' )
+           .set( 'subordinados', 13 );
+
+console .group( 'Mapas (Maps)' );
   // Cantidad de Elementos
-  console .log( 'Cantidad de elementos: ', frutas .size );
+  console .log( 'Nombre: ', trabajador .get( 'nombre' ) );
 
   // Verifica si existe un elemento en el conjunto
-  console .log( 'Existe el elemento "Mora"? ', frutas .has( 'Mora' ) );
-  console .log( 'Existe el elemento "Mango"? ', frutas .has( 'Mango' ) );
+  console .log( 'Cargo: ',  trabajador .get( 'cargo' ) );
+  console .log( '# Empleados a cargo: ',  trabajador .get( 'subordinados' ) );
 console .groupEnd();
