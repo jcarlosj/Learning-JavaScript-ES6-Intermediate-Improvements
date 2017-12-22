@@ -1,22 +1,32 @@
 /* Valores por defecto en argumentos en ES6 */
 
-// Crea un objeto de datos
-let modulo = {
-  calcularCuadrado( longitud ) {
-    console .log( 'Cuadrado de longitud ' + longitud + ' es: ', longitud * longitud );
-  },
-  perimetroCirculo( radio ) {
-    console .log( 'Perímetro de un circulo de radio ' + radio + ' es: ', 2 * Math .PI * radio );
-  },
-  saludar( nombre ) {
-    console .log( 'Hola ' + nombre + ' esto es Destructuring' );
-  }
-};
+// Crea 2 objetos de datos
+let casa = {
+  ciudad: 'Bogotá',
+  direccion: 'Carrera 30 con 63',
+  metros: '300',
+  habitaciones: '5',
+  banios: '3',
+  otros: 'Garaje, 2 patios de ropas y estudio'
+}
 
-// Extraemos los datos del Objeto 'datos' usando el destructuring asignandolo a una lista de variables
-let { calcularCuadrado, saludar, perimetroCirculo } = modulo;     // Aunque esten invertidos si se llaman igual los resultados se extraen
+let apartamento = {
+  ciudad: 'Medellín',
+  direccion: 'Av Colombia con Cra 70',
+  metros: '110',
+  habitaciones: '3',
+  banios: '2'
+}
 
-// Imprimimos los datos extraidos
-calcularCuadrado( 5 );
-perimetroCirculo( 2 );
-saludar( 'Juan' );
+// Función para extraer los datos del Objeto usando el destructuring asignandolo a una lista de variables
+function predio( { ciudad, direccion, metros, habitaciones, banios, otros = 'Sin información' } ) {
+  console .log(
+    `El predio se encuentra ubicado en la ciudad de ${ciudad} en la dirección
+    ${direccion} con las siguientes características: ${metros} metros cuadrados
+    ${banios} baños ${habitaciones} habitaciones ${otros}`
+  );
+}
+
+// Extrae datos a través de la función
+predio( casa );
+predio( apartamento );
