@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Clases y la POO en ES6</title>
+    <script src="js/class.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <h1>Clases y la POO en ES6</h1>
+    <ul>
+      <li>Ahora podemos hacer clases por medio de la sentencia <b>class</b></li>
+      <li>Podemos utilizar el método <b>constructor()</b> para crear una función constructora</li>
+      <li>Los lenguajes tradicionales basados en clases ofrecen la parabra reservada <b>this</b> para referencia a la instancia actual de la clase</li>
+      <li>En JavaScript <b>this</b> se refiere <b>al contexto de la llamada</b> y como tal puede ser cambiado a algo más que un objeto</li>
+      <li>Un objeto es una instancia de la clase, la cual es creada usando el operador <b>new</b></li>
+      <li>Cuando se usa un punto para acceder al método del objeto, <b>this</b> se va a referir al objeto a la izquierda del punto</li>
+    </ul>
+    <h2>Herencia</h2>
+    <ul>
+      <li>Al igual que otros lenguajes de programación, una clase puede extender otra clase heredando métodos o propiedades de la clase padre</li>
+      <li>La función <b>super()</b> ejecuta el método con el mismo nombre desde el que se está llamando a <b>super()</b>, de esta forma al definir el nuevo constructor llamamos a <b>super()</b> y le pasamos los mismos parámetros que recibe el constructor, entonces se ejecuta ese constructor y luego código del nuevo</li>
+    </ul>
+    <h2>Getters y Setters</h2>
+    <ul>
+      <li>,En algunos lenguajes de programación (como Java) existen los <b>getters</b> y los <b>setters</b></li>
+      <li>Estos métodos que se usan para controlar variables internas de un objeto (propiedades)</li>
+      <li>Para usarlos simplemente se agrega <b>get</b> o <b>set</b> delante del nombre del método</li>
+      <li>Definir un método <b>get</b> con el nombre que quieras (no puede ser el nombre de la propiedad) y este debería devolver el valor deseado (técnicamente puede hacer cualquier cosa este método), o defines un método <b>set</b> con otro nombre (tempoco con el mismo de la propiedad) y que recibe el nuevo valor y lo asigna a <b>this</b></li>
+    </ul>
+    <h2>Métodos estáticos</h2>
+    <ul>
+      <li>Al igual que en otros lenguajes también va a ser posible crear métodos estáticos usando la palabra clave <b>static</b> antes del nombre del método, para poder hacer uso de ellos no necesitamos crear una instancia
+          <pre>
+            class miClase {
+              static miMetodo() {
+                return 'Hola Mundo!';
+              }
+            }
+          </pre>
+      </li>
+      <li>Luego para poder usarlo simplemente llamas al método deade la clase sin instanciar
+        <pre>let mensaje = miClase .miMetodo();  // 'Hola Mundo!';</pre>
+      </li>
+    </ul>
+    <h2>Características</h2>
+    <ul>
+      <li>Los nombres de las clases no pueden ser <b>eval</b> o <b>arguments</b></li>
+      <li>No están permitidos nombres de clase repetidos</li>
+      <li>El nombre del constructor solo puede ser usado para métodos, no para <b>getters</b>, <b>setters</b> o un <b>generador de métodos</b></li>
+      <li>Las clases no se pueden llamar antes de definirse</li>
+      <li>Todavía se puede instanciar la clase desde cualquier parte, solo es necesario esperar a que esté definida</li>
+    </ul>
+  </body>
+</html>
