@@ -1,12 +1,23 @@
 /* Objetos de propagación o Spread (Expansión) en ES6 */
 
-function ordenar( ...numeros ) {
-  return numeros .sort();
-}
+let letras = [ 'c', 'd', 'e' ];
 
-var numeros = [ 5, 3, 7, 1, 9 ];
+/* Agregando valores de forma tradicional */
+let cadena1 = [ 'a', 'b', 'f', 'g' ];   // Forma tradicional
 
-console .group( 'Ordenar: 5, 3, 7, 1, 9' );
-  console .log( 'Forma 1: ', ordenar( 5, 3, 7, 1, 9 ) );   // [ 2, 4 ,6 ]
-  console .log( 'Forma 2: ', ordenar( ...numeros ) );   // [ 2, 4 ,6 ]
+cadena1 .push( letras[ 0 ] );
+cadena1 .push( letras[ 1 ] );
+cadena1 .push( letras[ 2 ] );
+
+/* Agregando usando el Spread */
+let cadena2 = [ 'a', 'b', ...letras, 'f', 'g' ];
+
+console .group( 'Spread con Arrays' );
+console .log( "letras ... ", letras );
+  console .group( 'Tradicional' );
+    console .log( "cadena1 ... ", cadena1 );  // Tradicional
+  console .groupEnd();
+  console .group( 'Spread' );
+    console .log( "cadena2 ... ", cadena2 );  // Spread
+  console .groupEnd();
 console .groupEnd();
