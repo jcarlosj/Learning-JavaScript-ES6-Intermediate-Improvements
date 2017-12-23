@@ -1,20 +1,21 @@
 /* Internacionalización y Localizción en ES6 */
 
 /* Instancias de internacionalización para Formato de Monedas por zona */
-var l10nUSD = new Intl .NumberFormat( 'en-US', { style: 'currency', currency: 'USD' } ),
-    l10nGBP = new Intl .NumberFormat( 'en-GB', { style: 'currency', currency: 'GBP' } ),
-    l10nEUR = new Intl .NumberFormat( 'de-DE', { style: 'currency', currency: 'EUR' } );
+var l10nEN = new Intl .DateTimeFormat( 'en-US' ),
+    l10nMX = new Intl .DateTimeFormat( 'es-MX' ),
+    l10nDE = new Intl .DateTimeFormat( 'de-DE' );
 
 console .group( 'Intl ' );
-  console .group( 'NumberFormat Method: Formateo de 100200300.40 por zona: ' );
-    console .log( 'Dólar Americano (USD): ',l10nUSD .format( 100200300.40 ) );
-    console .log( 'Libras esterlinas (GBP): ',l10nGBP .format( 100200300.40 ) );
-    console .log( 'Euros (EUR): ',l10nEUR .format( 100200300.40 ) );
+  console .group( 'DateTimeFormat Method: Formateo de 2017-11-24 por zona: ' );
+    console .log( 'Formato fecha Americana: ',l10nEN .format( new Date( '2017-11-24' ) ) );
+    console .log( 'Formato fecha Mexicana: ',l10nMX .format( new Date( '2017-11-24' ) ) );
+    console .log( 'Formato fecha Europea: ',l10nDE .format( new Date( '2017-11-24' ) ) );
   console .groupEnd();
+
   /* Relizamos una comparación de acuerdo a la internacionalización de cada idioma y reordenamiento */
-  console .group( 'Formato moneda de 100200300.40 en: ' );
-    console .log( '$100,200,300.40 está en formato Dólar Americano (USD): ', l10nUSD .format( 100200300.40 ) === '$100,200,300.40' );
-    console .log( '£100,200,300.40 está en formato Libras esterlinas (GBP): ', l10nGBP .format( 100200300.40 ) === '£100,200,300.40' );
-    console .log( '100.200.300,40 € está en formato Euros (EUR): ', l10nEUR .format( 100200300.40 ) === '100.200.300,40 €' );
+  console .group( 'Formato fecha de 2017-11-24 en: ' );
+    console .log( '11/23/2017 está en formato de fecha Americano: ', l10nEN .format( new Date( '2017-11-24' ) ) === '11/23/2017' );
+    console .log( '23/11/2017 está en formato de fecha Mexicano: ', l10nMX .format( new Date( '2017-11-24' ) ) === '23/11/2017' );
+    console .log( '23.11.2017 está en formato de fecha Europeo: ', l10nDE .format( new Date( '2017-11-24' ) ) === '23.11.2017' );
   console .groupEnd();
 console .groupEnd();
