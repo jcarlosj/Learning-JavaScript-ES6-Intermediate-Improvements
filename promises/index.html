@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Promises</title>
+    <script src="js/promises.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <h1>Promises</h1>
+    <ul>
+      <li>EL flujo de información de internet tiene característivas asíncronas, lo que significa que mientras esperamos el resultado de una operación como por ejemplo que carguen los datos de una página web, un programa puede realizar otras operaciones  y utilizarlo cuando el resultado esté listo</li>
+      <li>Las "promesas" (<b>promises</b>) son objetos que representa esta clase de operaciones y los datos que se obtienen</li>
+      <li>Las promesas nos sirven para administrar las funciones de <b>callback</b>, procesos asíncronos. Un <b>callback</b> es una función llamada desde otra función, a la multiplicidad de callbacks es lo que se conoce como el "hell the callbacks" (Infinidad de llamados) Las promesas mejoran la situación</li>
+      <li>Una promesa tiene tres estados: <b>pending</b>, <b>fulfilled (success)</b> y <b>rejected (error)</b></li>
+      <li>Las promesas se pueden encadenar</li>
+      <li>Para enviar la información dentro de las promesas, se envían dentro de <b>resolve()</b> y de <b>reject()</b>, y dentro de <b>return</b></li>
+      <li>Con <b>throw</b> cortamos las promesas</li>
+      <li>Las promesas están basadas en un standar que se llama <b>Promises a+</b></li>
+      <li>Existen muchos paquetes que nos permiten antes de ES6 hacer uso de las Promesas</li>
+      <ul>
+        <li>Accius</li>
+        <li>Angular tiene un manejador de Promesas <b>toPromise</b></li>
+        <li>jQuery tiene <b>deferred</b></li>
+        <li>Polyfill <b>es6 promise</b> http://github.com/stefanpenner/es6-promise</li>
+        <li>awai</li>
+        <li>http://polyfill.io/v2/docs</li>
+      </ul>
+    </ul>
+    <h2>Crear promesas</h2>
+    <ul>
+      <li><pre>new Promise ( function( resolve, reject ) {});</pre> tenemos una función anónima (se  puede hacer con Fat Arrows)</li>
+      <li>La opción <b>resolve()</b> regresa el valor correcto (success)</li>
+      <li>La opción <b>reject()</b> regresa el valor erróneo (error)</li>
+    </ul>
+    <h2>Llamar a las promesas</h2>
+    <ul>
+      <li>Tiene un método que es <b>"then"</b>, lee el valor correcto (success)</li>
+      <li>Tiene un método que es <b>"catch"</b>, lee el valor erróneo (error)</li>
+    </ul>
+    <h2>Más de una promesa</h2>
+    <ul>
+      <li>Encadenar varias promesas (Cuando unos datos dependen de otros)</li>
+      <li><b>all[]</b> indica si cumple todas las promesas</li>
+      <li><b>race[]</b> indica si cumple "alguna" de las promesas </li>
+    </ul>
+  </body>
+</html>
