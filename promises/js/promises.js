@@ -1,25 +1,29 @@
 /* Promises en ES6 */
 
 /* CREACION DE PROMESAS */
-let miPromesa = new Promise( function( todoBien, todoMal ) {
-  let resultado = false;
+let primeraPromesa = function() {
+    return new Promise( function( resolve, reject ) {
+      resolve( 'Primera Promesa!' );
+    });
+};
 
-  if( resultado ) {
-    todoBien( 'Listo Medellín! ');
-  }
-  else {
-    todoMal( 'Algo falló parce' );
-  }
+let segundaPromesa = ( mensaje ) => {                       // Function Arrow
+    return new Promise( ( resolve, reject ) => {            // Function Arrow
+      resolve( mensaje + ' Segunda Promesa!' );
+    });
+};
+
+let terceraPromesa = function( mensaje ) {
+    return new Promise( function( resolve, reject ) {
+      resolve( mensaje +' Tercera Promesa!' );
+    });
+};
+
+/* Encadenamos las Promesas */
+primeraPromesa() .then( function( resultado ) {   // Lanza la primera promesa si es correcta lanza la siguiente a través de una función anonima en el "then"
+  return segundaPromesa( resultado );             // Lanza la segunda promesa si es correcta lanza la siguiente a través de una función anonima en el "then"
+}) .then( function( resultado ) {
+  return terceraPromesa( resultado );             // Lanza la tercera promesa si es correcta lanza la siguiente 
+}) .then( function( resultado ) {
+  console .log( 'Finaliza: ' + resultado );
 });
-
-/* DISPARADOR O EJECUCIÓN DE PROMESAS */
-console .group( 'Promises' );
-
-miPromesa .then( function ( resultado ) {
-  console .log( 'El resultado es: ', resultado );
-})
-.catch( function( resultado ) {
-    console .log( 'El resultado es: ', resultado );
-});
-
-console .groupEnd();
