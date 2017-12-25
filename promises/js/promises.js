@@ -1,29 +1,24 @@
 /* Promises en ES6 */
 
 /* CREACION DE PROMESAS */
-let primeraPromesa = function() {
-    return new Promise( function( resolve, reject ) {
-      resolve( 'Primera Promesa!' );
-    });
-};
+let primeraPromesa = new Promise( ( resolve, reject ) => {
+  setTimeout( () => {
+    resolve( 'Primera Promesa - Todo Bien' );
+  }, 1000 );                                      // 1 segundo
+});
 
-let segundaPromesa = ( mensaje ) => {                       // Function Arrow
-    return new Promise( ( resolve, reject ) => {            // Function Arrow
-      resolve( mensaje + ' Segunda Promesa!' );
-    });
-};
-
-let terceraPromesa = function( mensaje ) {
-    return new Promise( function( resolve, reject ) {
-      resolve( mensaje +' Tercera Promesa!' );
-    });
-};
+let segundaPromesa = new Promise( ( resolve, reject ) => {
+  setTimeout( () => {
+    resolve( 'Segunda Promesa - Todo Bien' );
+  }, 500 );                                      // 0.5 segundos
+});
 
 /* Encadenamos las Promesas */
-primeraPromesa() .then( function( resultado ) {   // Lanza la primera promesa si es correcta lanza la siguiente a través de una función anonima en el "then"
-  return segundaPromesa( resultado );             // Lanza la segunda promesa si es correcta lanza la siguiente a través de una función anonima en el "then"
-}) .then( function( resultado ) {
-  return terceraPromesa( resultado );             // Lanza la tercera promesa si es correcta lanza la siguiente 
-}) .then( function( resultado ) {
-  console .log( 'Finaliza: ' + resultado );
-});
+Promise .all([ primeraPromesa, segundaPromesa ])
+  .then( data => {
+    console .log( data );
+  })
+  .catch( err => console .log( 'ERROR ', err ) );
+
+/* NOTA: Si invertimos los tiempos los datos que se imprimirán serán los de la última
+ *       que es la que prevalece al ejecutarse bien la primera y bien la segunda */  
